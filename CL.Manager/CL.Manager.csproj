@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="automapper" Version="11.0.1" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CL.Core.Shared\CL.Core.Shared.csproj" />
+    <ProjectReference Include="..\CL.Core\CL.Core.csproj" />
+  </ItemGroup>
+
+</Project>
