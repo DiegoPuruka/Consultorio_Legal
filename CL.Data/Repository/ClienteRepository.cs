@@ -18,13 +18,17 @@ namespace CL.Data.Repository
 
         public async Task<IEnumerable<Cliente>> GetClientesAsync()
         {
-            return await context.Clientes.AsNoTracking().ToListAsync();
+            return await context.Clientes
+                .Include(p => p.Endereco)
+                .AsNoTracking().ToListAsync();
         }
 
         public async Task<Cliente> GetClienteAsync(int id)
         {
             //return await context.Clientes.AsNoTracking().FirstOrDefaultAsync(c => c.Id == id);
-            return await context.Clientes.FindAsync(id);
+            return await context.Clientes
+                .Include(p => p.Endereco)
+                .SingleOrDefaultAsync(p => p.Id == id);
         }
 
         //Insert
@@ -44,7 +48,7 @@ namespace CL.Data.Repository
             {
                 return clienteConsultado;
             }
-                        
+
             context.Entry(clienteConsultado).CurrentValues.SetValues(cliente);
 
             await context.SaveChangesAsync();

@@ -34,6 +34,7 @@ namespace CL.Core.Shared.ModelViews
         /// </summary>
         /// <example>12345</example>
         public string Documento { get; set; }
+        public NovoEndereco Endereco { get; set; }
 
     }
 }
